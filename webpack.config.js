@@ -26,7 +26,7 @@ module.exports = {
   mode: "development",
   devtool: "eval",
   entry: {
-    app: path.resolve(SRC_PATH, "app.js")
+    app: path.resolve(SRC_PATH, "app.tsx")
   },
   output: {
     filename: JS_NAME,
@@ -41,7 +41,7 @@ module.exports = {
     poll: 0812
   },
   resolve: {
-    extensions: [".ts", ".tsx"]
+    extensions: [".ts", ".tsx", ".js"] //.js的后缀名需要加上，第三方模块会使用到
   },
   module: {
     rules: [
