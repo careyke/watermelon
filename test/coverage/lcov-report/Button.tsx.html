@@ -22,12 +22,12 @@
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>11/11</span>
+        <span class='fraction'>10/10</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">64.71% </span>
+        <span class="strong">100% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>11/17</span>
+        <span class='fraction'>17/17</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
@@ -37,7 +37,7 @@
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>11/11</span>
+        <span class='fraction'>10/10</span>
       </div>
     </div>
     <p class="quiet">
@@ -85,37 +85,35 @@
 <a name='L37'></a><a href='#L37'>37</a>
 <a name='L38'></a><a href='#L38'>38</a>
 <a name='L39'></a><a href='#L39'>39</a>
-<a name='L40'></a><a href='#L40'>40</a>
-<a name='L41'></a><a href='#L41'>41</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L40'></a><a href='#L40'>40</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">6x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -149,20 +147,19 @@ export default function Button(props: IButtonProps): React.ReactElement {
   })
   let btnTextClass = classnames({
     [styles['btn-text']]: true,
-    [styles['btn-icon-text']]: icon &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >showStyle === ButtonShowStyle.IconText,</span>
-    [styles['btn-text-icon']]: icon &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >showStyle === ButtonShowStyle.TextIcon,</span>
+    [styles['btn-icon-text']]: icon &amp;&amp; showStyle === ButtonShowStyle.IconText,
+    [styles['btn-text-icon']]: icon &amp;&amp; showStyle === ButtonShowStyle.TextIcon,
   })
-&nbsp;
-  const [isLoading, setLoading] = useState(loading);
+  // const [isLoading, setLoading] = useState(loading);
 &nbsp;
   return (
     &lt;div className={btnClass}&gt;
       {
-        showStyle === ButtonShowStyle.IconText &amp;&amp; icon ? <span class="branch-0 cbranch-no" title="branch not covered" >&lt;span className={iconClass} &gt;&lt;/span&gt; </span>: null
+        showStyle === ButtonShowStyle.IconText &amp;&amp; icon ? &lt;span className={iconClass} &gt;&lt;/span&gt; : null
       }
-      {shape !== ButtonShape.Circle ? &lt;span className={btnTextClass}&gt;{props.children}&lt;/span&gt; : <span class="branch-1 cbranch-no" title="branch not covered" >null}</span>
+      {shape !== ButtonShape.Circle ? &lt;span className={btnTextClass}&gt;{props.children}&lt;/span&gt; : null}
       {
-        showStyle === ButtonShowStyle.TextIcon &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >icon </span>? <span class="branch-0 cbranch-no" title="branch not covered" >&lt;span className={iconClass} &gt;&lt;/span&gt; </span>: null
+        showStyle === ButtonShowStyle.TextIcon &amp;&amp; icon ? &lt;span className={iconClass} &gt;&lt;/span&gt; : null
       }
     &lt;/div&gt;
   )
@@ -172,7 +169,7 @@ export default function Button(props: IButtonProps): React.ReactElement {
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Thu Jun 20 2019 21:01:20 GMT+0800 (中国标准时间)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon Jun 24 2019 23:38:10 GMT+0800 (中国标准时间)
 </div>
 </div>
 <script src="prettify.js"></script>

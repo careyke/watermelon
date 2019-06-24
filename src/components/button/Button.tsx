@@ -24,8 +24,7 @@ export default function Button(props: IButtonProps): React.ReactElement {
     [styles['btn-icon-text']]: icon && showStyle === ButtonShowStyle.IconText,
     [styles['btn-text-icon']]: icon && showStyle === ButtonShowStyle.TextIcon,
   })
-
-  const [isLoading, setLoading] = useState(loading);
+  // const [isLoading, setLoading] = useState(loading);
 
   return (
     <div className={btnClass}>
