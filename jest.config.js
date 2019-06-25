@@ -5,7 +5,7 @@ module.exports = {
   rootDir: ROOT,
   collectCoverage: true, //是否收集测试覆盖率信息
   collectCoverageFrom: ["<rootDir>/src/**/*.{ts,tsx}"], // 哪些文件需要收集测试覆盖率
-  coverageDirectory: "<rootDir>/test/coverage", //测试覆盖率文件的输出目录
+  coverageDirectory: "<rootDir>/coverage", //测试覆盖率文件的输出目录
   coveragePathIgnorePatterns: [
     "/node_modules/",
     "<rootDir>/src/app.tsx",
