@@ -8,7 +8,7 @@ import { ButtonType, ButtonShape, ButtonShowStyle } from './type'
 
 export default function ButtonTest(): React.ReactElement {
   return (
-    <div className={styles['btn-test-container']}>
+    <div className={styles.btnTestContainer}>
       <Button type={ButtonType.Default}>{'Default'}</Button>
       <Button type={ButtonType.Primary}>{'Primary'}</Button>
       <Button icon='search' type={ButtonType.Danger}>{'Danger'}</Button>

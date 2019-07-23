@@ -2,7 +2,6 @@ import React from "react";
 import renderer from "react-test-renderer";
 import { render, mount, shallow } from "enzyme";
 import Button from "../Button";
-import btnStyles from "../button.less";
 import { ButtonType } from "../type";
 
 describe("Button test", () => {
@@ -42,12 +41,12 @@ describe("Button test", () => {
     const typeKeys = Object.keys(ButtonType);
     const len = typeKeys.length;
     const getRandType = () => {
-      let index = ~~(Math.random() * len);
+      const index = ~~(Math.random() * len);
       return ButtonType[typeKeys[index]];
     };
     const currentType = getRandType();
     const wrapper = shallow(<Button type={currentType} shape={'circle'} >Default</Button>);
-    expect(wrapper.find(".btn-base").hasClass(`btn-${currentType}`)).toBe(true);
-    expect(wrapper.find(".btn-base").hasClass('btn-circle')).toBe(true);
+    expect(wrapper.find(".btnBase").hasClass(`btn${currentType.replace(/^\S/, (c) => c.toUpperCase())}`)).toBe(true);
+    expect(wrapper.find(".btnBase").hasClass('btnCircle')).toBe(true);
   });
 });

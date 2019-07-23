@@ -6,23 +6,23 @@ import styles from './button.less';
 export default function Button(props: IButtonProps): React.ReactElement {
   const { type = 'default', shape, loading = false, showStyle = 'icon-text', icon } = props;
   let iconClass = classnames({
-    [styles['btn-icon']]: true,
+    [styles.btnIcon]: true,
     'iconfont': true,
     ['icon-' + icon]: true
   })
   let btnClass = classnames({
-    [styles['btn-base']]: true,
-    [styles['btn-default']]: type === ButtonType.Default,
-    [styles['btn-primary']]: type === ButtonType.Primary,
-    [styles['btn-danger']]: type === ButtonType.Danger,
-    [styles['btn-link']]: type === ButtonType.Link,
-    [styles['btn-round']]: shape === ButtonShape.Round,
-    [styles['btn-circle']]: shape === ButtonShape.Circle,
+    [styles.btnBase]: true,
+    [styles.btnDefault]: type === ButtonType.Default,
+    [styles.btnPrimary]: type === ButtonType.Primary,
+    [styles.btnDanger]: type === ButtonType.Danger,
+    [styles.btnLink]: type === ButtonType.Link,
+    [styles.btnRound]: shape === ButtonShape.Round,
+    [styles.btnCircle]: shape === ButtonShape.Circle,
   })
   let btnTextClass = classnames({
-    [styles['btn-text']]: true,
-    [styles['btn-icon-text']]: icon && showStyle === ButtonShowStyle.IconText,
-    [styles['btn-text-icon']]: icon && showStyle === ButtonShowStyle.TextIcon,
+    [styles.btnText]: true,
+    [styles.btnIconText]: icon && showStyle === ButtonShowStyle.IconText,
+    [styles.btnTextIcon]: icon && showStyle === ButtonShowStyle.TextIcon,
   })
   // const [isLoading, setLoading] = useState(loading);
 
