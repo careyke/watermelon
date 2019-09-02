@@ -1,40 +1,40 @@
-import React, { useState } from 'react';
+import React, { FC, MouseEventHandler, CSSProperties } from 'react';
 import classnames from 'classnames';
-import { IButtonProps, ButtonType, ButtonShape, ButtonShowStyle } from './type';
 import styles from './button.less';
+import { ButtonType, ButtonShape, ButtonTypeClass, ButtonStyle, ButtonShapeClass } from './type';
 
-export default function Button(props: IButtonProps): React.ReactElement {
-  const { type = 'default', shape, loading = false, showStyle = 'icon-text', icon } = props;
-  let iconClass = classnames({
-    [styles.btnIcon]: true,
-    'iconfont': true,
-    ['icon-' + icon]: true
-  })
-  let btnClass = classnames({
-    [styles.btnBase]: true,
-    [styles.btnDefault]: type === ButtonType.Default,
-    [styles.btnPrimary]: type === ButtonType.Primary,
-    [styles.btnDanger]: type === ButtonType.Danger,
-    [styles.btnLink]: type === ButtonType.Link,
-    [styles.btnRound]: shape === ButtonShape.Round,
-    [styles.btnCircle]: shape === ButtonShape.Circle,
-  })
-  let btnTextClass = classnames({
-    [styles.btnText]: true,
-    [styles.btnIconText]: icon && showStyle === ButtonShowStyle.IconText,
-    [styles.btnTextIcon]: icon && showStyle === ButtonShowStyle.TextIcon,
-  })
-  // const [isLoading, setLoading] = useState(loading);
+interface IButtonProps {
+  type?: ButtonType,
+  shape?: ButtonShape,
+  icon?: string;
+  buttonStyle?: ButtonStyle;
+  onClick?: MouseEventHandler;
+  style?: CSSProperties;
+}
+
+export const Button: FC<IButtonProps> = (props) => {
+  const { children, type = 'default', shape, buttonStyle = 'icon-text', onClick, icon } = props;
+  const typeClassName = `btn${type}` as ButtonTypeClass;
+  const shapeClassName = `btn${shape}` as ButtonShapeClass;
+  const buttonClass = classnames({
+    [styles.button]: true,
+    [styles[typeClassName]]: type,
+    [styles[shapeClassName]]: shape
+  });
+  const iconClass = classnames({
+    [styles.icon]: true,
+    [`iconfont icon-${icon}`]: icon
+  });
+  const textClass = classnames({
+    [styles.btnicontext]: icon && buttonStyle === 'icon-text',
+    [styles.btntexticon]: icon && buttonStyle === 'text-icon'
+  });
 
   return (
-    <div className={btnClass}>
-      {
-        showStyle === ButtonShowStyle.IconText && icon ? <span className={iconClass} ></span> : null
-      }
-      {shape !== ButtonShape.Circle ? <span className={btnTextClass}>{props.children}</span> : null}
-      {
-        showStyle === ButtonShowStyle.TextIcon && icon ? <span className={iconClass} ></span> : null
-      }
+    <div className={buttonClass} onClick={onClick}>
+      {buttonStyle === 'icon-text' && icon ? <span className={iconClass}></span> : null}
+      {shape === 'circle' && icon ? null : <span className={textClass}>{children}</span>}
+      {buttonStyle === 'text-icon' && icon ? <span className={iconClass}></span> : null}
     </div>
-  )
+  );
 }

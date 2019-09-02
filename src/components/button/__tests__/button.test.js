@@ -1,52 +1,57 @@
 import React from "react";
-import renderer from "react-test-renderer";
 import { render, mount, shallow } from "enzyme";
-import Button from "../Button";
-import { ButtonType } from "../type";
+import { Button } from "../Button";
+
 
 describe("Button test", () => {
   it("renders correctly", () => {
     const wrapper = render(<Button>Default</Button>);
     expect(wrapper).toMatchSnapshot();
+    const wrapper1 = render(<Button icon='search'>Search</Button>);
+    expect(wrapper1).toMatchSnapshot();
+    const wrapper2 = render(<Button type='success' icon='search'>Search</Button>);
+    expect(wrapper2).toMatchSnapshot();
+    const wrapper3 = render(<Button type='success' icon='search' shape='circle'>Search</Button>);
+    expect(wrapper3).toMatchSnapshot();
   });
-  it("renders correctly with icon left", () => {
-    const wrapper = render(
-      <Button icon="search" showStyle="icon-text">
-        Default
-      </Button>
-    );
-    expect(wrapper).toMatchSnapshot();
+  it('has correct type className', () => {
+    const getType = () => {
+      const typeArr = ['default', 'danger', 'primary', 'warning', 'link'];
+      const num = ~~(Math.random() * typeArr.length);
+      return typeArr[num];
+    }
+    const type = getType();
+    const wrapper = shallow(<Button type={type}>Default</Button>);
+    expect(wrapper.hasClass(`btn${type}`)).toEqual(true);
   });
-  it("render correctly with icon right", () => {
-    const wrapper = render(
-      <Button icon="search" showStyle="text-icon">
-        Default
-      </Button>
-    );
-    expect(wrapper).toMatchSnapshot();
+  it('has correct shape className', () => {
+    const getShape = () => {
+      const arr = ['round', 'circle'];
+      const num = ~~(Math.random() * arr.length);
+      return arr[num];
+    }
+    const shape = getShape();
+    const wrapper = shallow(<Button shape={shape}>Default</Button>);
+    expect(wrapper.hasClass(`btn${shape}`)).toEqual(true);
   });
-  it("render correctly without text", () => {
-    const wrapper = render(
-      <Button icon="search" shape="circle">
-        Default
-      </Button>
-    );
-    expect(wrapper).toMatchSnapshot();
+  it('render children count correctly', () => {
+    const wrapper1 = shallow(<Button icon='search'>Default</Button>);
+    expect(wrapper1.children().length).toEqual(2);
+    const wrapper2 = shallow(<Button>Default</Button>);
+    expect(wrapper2.children().length).toEqual(1);
+    const wrapper3 = shallow(<Button shape='circle' icon='search'>Default</Button>);
+    expect(wrapper3.children().length).toEqual(1);
   });
-  it("mount correctly", () => {
-    const wrapper = mount(<Button>Default</Button>);
-    expect(() => wrapper).not.toThrow();
+  it('render icon order correctly', () => {
+    const wrapper1 = shallow(<Button icon='search'>Search</Button>);
+    expect(wrapper1.childAt(0).hasClass('icon')).toEqual(true);
+    const wrapper2 = shallow(<Button buttonStyle='text-icon' icon='search'>Search</Button>);
+    expect(wrapper2.children().last().hasClass('icon')).toEqual(true);
   });
-  it("render with correctly class", () => {
-    const typeKeys = Object.keys(ButtonType);
-    const len = typeKeys.length;
-    const getRandType = () => {
-      const index = ~~(Math.random() * len);
-      return ButtonType[typeKeys[index]];
-    };
-    const currentType = getRandType();
-    const wrapper = shallow(<Button type={currentType} shape={'circle'} >Default</Button>);
-    expect(wrapper.find(".btnBase").hasClass(`btn${currentType.replace(/^\S/, (c) => c.toUpperCase())}`)).toBe(true);
-    expect(wrapper.find(".btnBase").hasClass('btnCircle')).toBe(true);
-  });
+  it('trigger click correctly', () => {
+    const handleClick = jest.fn(); //Returns a new, unused mock function,expect() expect it;
+    const wrapper = mount(<Button onClick={handleClick}>Click</Button>);
+    wrapper.simulate('click');
+    expect(handleClick).toHaveBeenCalled();
+  })
 });

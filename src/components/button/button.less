@@ -1,67 +1,78 @@
-.btn-base {
+@import '../../colors.less';
+
+.button{
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-shrink: 0;
   align-self: flex-start;
-  background-color: #ffffff;
-  color: rgba(0, 0, 0, 0.65);
-  border: 1px solid #c3c3c3;
+  padding: 10px 8px;
+  border: 1px solid #999;
   cursor: pointer;
-  padding: 5px 8px;
   margin: 0 20px 20px 0;
+  .icon{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 }
-.btn-default:hover {
-  border-color: #218c02;
-  color: #218c02;
+.btndefault{
+  border-color: #999;
+  &:hover{
+    color: @primaryColor;
+    border-color: @primaryColor;
+  }
 }
-.btn-primary {
-  background-color: #218c02;
+.btnprimary{
   color: #ffffff;
-  border-color: #218c02;
-  &:hover {
-    opacity: 0.8;
+  background-color: @primaryColor;
+  border-color: @primaryColor;
+  &:hover{
+    opacity: 0.9;
   }
 }
-.btn-danger {
-  background-color: #ffffff;
-  color: #ff0000;
-  &:hover {
-    background-color: #ff0000;
-    color: #ffffff;
-    border-color: #ff0000;
+.btnsuccess{
+  color: #ffffff;
+  background-color: @successColor;
+  border-color: @successColor;
+  &:hover{
+    opacity: 0.9;
   }
 }
-.btn-link {
-  border: none;
-  color: #218c02;
+.btnwarning{
+  color: #ffffff;
+  background-color: @warnColor;
+  border-color: @warnColor;
+  &:hover{
+    opacity: 0.9;
+  }
 }
-.btn-round {
+.btndanger{
+  color: #ffffff;
+  background-color: @dangerColor;
+  border-color: @dangerColor;
+  &:hover{
+    opacity: 0.9;
+  }
+}
+.btnlink{
+  border-color: transparent;
+  color: @primaryColor;
+  &:hover{
+    opacity: 0.9;
+  }
+}
+.btnround{
   border-radius: 4px;
 }
-.btn-circle {
+.btncircle{
   width: 36px;
   height: 36px;
   padding: 0;
   border-radius: 50%;
 }
-.btn-text {
-  display: flex;
-  align-items: center;
+.btntexticon{
+  margin-right: 8px;
 }
-.btn-icon-text{
-  margin-left: 5px;
-}
-.btn-text-icon{
-  margin-right: 5px;
-}
-.btn-icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-// test
-.btn-test-container {
-  display: flex;
-  padding: 10px;
+.btnicontext{
+  margin-left: 8px;
 }

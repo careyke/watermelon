@@ -9,7 +9,8 @@ module.exports = {
   coveragePathIgnorePatterns: [
     "/node_modules/",
     "<rootDir>/src/app.tsx",
-    "<rootDir>/src/typings.d.ts"
+    "^.+\\.d.ts$",
+    "index.ts"
   ], //统计覆盖信息时需要忽略的文件
   setupFiles: ["<rootDir>/test/setup.js"], // 运行测试之前的预加载的脚本，常用来注册enzyme的兼容
   testRegex: ".*\\.test\\.js$", // 测试文件的正则表达式
