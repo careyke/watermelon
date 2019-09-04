@@ -13,6 +13,8 @@ describe("Button test", () => {
     expect(wrapper2).toMatchSnapshot();
     const wrapper3 = render(<Button type='success' icon='search' shape='circle'>Search</Button>);
     expect(wrapper3).toMatchSnapshot();
+    const wrapper4 = render(<Button type='success' icon='search' direction='col'>Search</Button>);
+    expect(wrapper4).toMatchSnapshot();
   });
   it('has correct type className', () => {
     const getType = () => {
@@ -33,6 +35,16 @@ describe("Button test", () => {
     const shape = getShape();
     const wrapper = shallow(<Button shape={shape}>Default</Button>);
     expect(wrapper.hasClass(`btn${shape}`)).toEqual(true);
+  });
+  it('has correct direction className',()=>{
+    const getDirection = () => {
+      const arr = ['row', 'col'];
+      const num = ~~(Math.random() * arr.length);
+      return arr[num];
+    }
+    const direction = getDirection();
+    const wrapper = shallow(<Button icon='search' direction={direction}>Default</Button>);
+    expect(wrapper.hasClass(`btn${direction}`)).toEqual(true);
   });
   it('render children count correctly', () => {
     const wrapper1 = shallow(<Button icon='search'>Default</Button>);

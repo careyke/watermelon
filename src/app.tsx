@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import {Button,FlexPanel,Icon} from './components'
+import { Button, FlexPanel, Icon } from './baseComponents'
 import styles from './app.less';
 
 const appDom = document.querySelector("#app");
@@ -16,8 +16,10 @@ function App(): React.ReactElement {
       <Button icon='check' buttonStyle='text-icon' type='success'>Default</Button>
       <Button shape='circle' icon='search' type='success'></Button>
       <Button type='danger' shape='round'>Default</Button>
+      <Button type='danger' icon='search' direction='col' >保存</Button>
+      <Button type='primary' direction='col' icon='search' shape='round' buttonStyle='text-icon' >保存</Button>
       <Icon type='search'></Icon>
-      <Icon type='search' onClick={()=>{}}></Icon>
+      <Icon type='search' onClick={() => { }}></Icon>
     </div>
   );
 }

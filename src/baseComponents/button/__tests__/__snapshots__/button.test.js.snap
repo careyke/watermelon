@@ -4,7 +4,7 @@ exports[`Button test renders correctly 1`] = `
 initialize {
   "0": Object {
     "attribs": Object {
-      "class": "button btndefault",
+      "class": "button btndefault btnrow",
     },
     "children": Array [
       Object {
@@ -76,7 +76,7 @@ exports[`Button test renders correctly 2`] = `
 initialize {
   "0": Object {
     "attribs": Object {
-      "class": "button btndefault",
+      "class": "button btndefault btnrow",
     },
     "children": Array [
       Object {
@@ -208,7 +208,7 @@ exports[`Button test renders correctly 3`] = `
 initialize {
   "0": Object {
     "attribs": Object {
-      "class": "button btnsuccess",
+      "class": "button btnsuccess btnrow",
     },
     "children": Array [
       Object {
@@ -340,7 +340,7 @@ exports[`Button test renders correctly 4`] = `
 initialize {
   "0": Object {
     "attribs": Object {
-      "class": "button btnsuccess btncircle",
+      "class": "button btnsuccess btncircle btnrow",
     },
     "children": Array [
       Object {
@@ -353,6 +353,138 @@ initialize {
         "next": null,
         "parent": [Circular],
         "prev": null,
+        "type": "tag",
+        "x-attribsNamespace": Object {
+          "class": undefined,
+        },
+        "x-attribsPrefix": Object {
+          "class": undefined,
+        },
+      },
+    ],
+    "name": "div",
+    "namespace": "http://www.w3.org/1999/xhtml",
+    "next": null,
+    "parent": null,
+    "prev": null,
+    "root": Object {
+      "attribs": Object {},
+      "children": Array [
+        [Circular],
+      ],
+      "name": "root",
+      "namespace": "http://www.w3.org/1999/xhtml",
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "type": "root",
+      "x-attribsNamespace": Object {},
+      "x-attribsPrefix": Object {},
+    },
+    "type": "tag",
+    "x-attribsNamespace": Object {
+      "class": undefined,
+    },
+    "x-attribsPrefix": Object {
+      "class": undefined,
+    },
+  },
+  "_root": [Circular],
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "normalizeWhitespace": false,
+    "withDomLvl1": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`Button test renders correctly 5`] = `
+initialize {
+  "0": Object {
+    "attribs": Object {
+      "class": "button btnsuccess btncol",
+    },
+    "children": Array [
+      Object {
+        "attribs": Object {
+          "class": "icon iconfont icon-search",
+        },
+        "children": Array [],
+        "name": "span",
+        "namespace": "http://www.w3.org/1999/xhtml",
+        "next": Object {
+          "attribs": Object {
+            "class": "btnicontext",
+          },
+          "children": Array [
+            Object {
+              "data": "Search",
+              "next": null,
+              "parent": [Circular],
+              "prev": null,
+              "type": "text",
+            },
+          ],
+          "name": "span",
+          "namespace": "http://www.w3.org/1999/xhtml",
+          "next": null,
+          "parent": [Circular],
+          "prev": [Circular],
+          "type": "tag",
+          "x-attribsNamespace": Object {
+            "class": undefined,
+          },
+          "x-attribsPrefix": Object {
+            "class": undefined,
+          },
+        },
+        "parent": [Circular],
+        "prev": null,
+        "type": "tag",
+        "x-attribsNamespace": Object {
+          "class": undefined,
+        },
+        "x-attribsPrefix": Object {
+          "class": undefined,
+        },
+      },
+      Object {
+        "attribs": Object {
+          "class": "btnicontext",
+        },
+        "children": Array [
+          Object {
+            "data": "Search",
+            "next": null,
+            "parent": [Circular],
+            "prev": null,
+            "type": "text",
+          },
+        ],
+        "name": "span",
+        "namespace": "http://www.w3.org/1999/xhtml",
+        "next": null,
+        "parent": [Circular],
+        "prev": Object {
+          "attribs": Object {
+            "class": "icon iconfont icon-search",
+          },
+          "children": Array [],
+          "name": "span",
+          "namespace": "http://www.w3.org/1999/xhtml",
+          "next": [Circular],
+          "parent": [Circular],
+          "prev": null,
+          "type": "tag",
+          "x-attribsNamespace": Object {
+            "class": undefined,
+          },
+          "x-attribsPrefix": Object {
+            "class": undefined,
+          },
+        },
         "type": "tag",
         "x-attribsNamespace": Object {
           "class": undefined,

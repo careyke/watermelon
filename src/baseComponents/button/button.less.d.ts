@@ -1,5 +1,9 @@
 export const button: string;
 export const icon: string;
+export const btnrow: string;
+export const btntexticon: string;
+export const btnicontext: string;
+export const btncol: string;
 export const btndefault: string;
 export const btnprimary: string;
 export const btnsuccess: string;
@@ -8,5 +12,3 @@ export const btndanger: string;
 export const btnlink: string;
 export const btnround: string;
 export const btncircle: string;
-export const btntexticon: string;
-export const btnicontext: string;

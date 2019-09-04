@@ -1,6 +1,6 @@
-@import '../../colors.less';
+@import "../../colors.less";
 
-.button{
+.button {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -9,70 +9,88 @@
   border: 1px solid #999;
   cursor: pointer;
   margin: 0 20px 20px 0;
-  .icon{
+  .icon {
     display: flex;
     align-items: center;
     justify-content: center;
   }
 }
-.btndefault{
+.btnrow{
+  flex-direction: row;
+  .btntexticon {
+    margin-right: 8px;
+  }
+  .btnicontext {
+    margin-left: 8px;
+  }
+}
+.btncol {
+  flex-direction: column;
+  padding: 4px;
+  .icon{
+    font-size: 20px;
+  }
+  .btntexticon {
+    margin-bottom: 4px;
+  }
+  .btnicontext {
+    margin-top: 4px;
+  }
+}
+.btndefault {
   border-color: #999;
-  &:hover{
+  &:hover {
     color: @primaryColor;
     border-color: @primaryColor;
   }
 }
-.btnprimary{
+.btnprimary {
   color: #ffffff;
   background-color: @primaryColor;
   border-color: @primaryColor;
-  &:hover{
+  &:hover {
     opacity: 0.9;
   }
 }
-.btnsuccess{
+.btnsuccess {
   color: #ffffff;
   background-color: @successColor;
   border-color: @successColor;
-  &:hover{
+  &:hover {
     opacity: 0.9;
   }
 }
-.btnwarning{
+.btnwarning {
   color: #ffffff;
   background-color: @warnColor;
   border-color: @warnColor;
-  &:hover{
+  &:hover {
     opacity: 0.9;
   }
 }
-.btndanger{
+.btndanger {
   color: #ffffff;
   background-color: @dangerColor;
   border-color: @dangerColor;
-  &:hover{
+  &:hover {
     opacity: 0.9;
   }
 }
-.btnlink{
+.btnlink {
   border-color: transparent;
   color: @primaryColor;
-  &:hover{
+  &:hover {
     opacity: 0.9;
   }
 }
-.btnround{
+.btnround {
   border-radius: 4px;
 }
-.btncircle{
+.btncircle {
   width: 36px;
   height: 36px;
   padding: 0;
   border-radius: 50%;
 }
-.btntexticon{
-  margin-right: 8px;
-}
-.btnicontext{
-  margin-left: 8px;
-}
+
+
