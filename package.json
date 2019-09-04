@@ -59,7 +59,8 @@
   },
   "scripts": {
     "test": "jest --config jest.config.js",
-    "dev": "webpack --config webpack.config.js"
+    "dev": "webpack --config webpack.config.js",
+    "update":"npm test -- -u"
   },
   "repository": {
     "type": "git",

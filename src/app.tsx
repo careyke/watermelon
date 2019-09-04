@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import {Button,FlexPanel} from './components'
+import {Button,FlexPanel,Icon} from './components'
 import styles from './app.less';
 
 const appDom = document.querySelector("#app");
@@ -16,6 +16,8 @@ function App(): React.ReactElement {
       <Button icon='check' buttonStyle='text-icon' type='success'>Default</Button>
       <Button shape='circle' icon='search' type='success'></Button>
       <Button type='danger' shape='round'>Default</Button>
+      <Icon type='search'></Icon>
+      <Icon type='search' onClick={()=>{}}></Icon>
     </div>
   );
 }
