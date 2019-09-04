@@ -13,7 +13,7 @@ interface IButtonProps {
 }
 
 export const Button: FC<IButtonProps> = (props) => {
-  const { children, type = 'default', shape, buttonStyle = 'icon-text', onClick, icon } = props;
+  const { children, type='default', shape, buttonStyle = 'icon-text', onClick, icon } = props;
   const typeClassName = `btn${type}` as ButtonTypeClass;
   const shapeClassName = `btn${shape}` as ButtonShapeClass;
   const buttonClass = classnames({

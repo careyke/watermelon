@@ -9,6 +9,7 @@
     "allowSyntheticDefaultImports": true, //允许你使用 ES2015 默认的 import 风格, 即使你导入的代码没有使用 ES2015 默认的 export。
     "noImplicitAny": true, //TypeScript 默认做的一件事是将变量设置为 any 类型,取消默认的类型设置
     "strict": true, // ts检查尽可能严格,
+    "strictNullChecks":true,
     "esModuleInterop": true, //这个属性和allowSyntheticDefaultImports效果一样，但是ts-jest新版本不支持了，变成了esModuleInterop
   },
   "exclude": [

@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import {Button} from './components'
+import {Button,FlexPanel} from './components'
 import styles from './app.less';
 
 const appDom = document.querySelector("#app");
