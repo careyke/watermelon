@@ -5,17 +5,20 @@ import React, { FC, MouseEventHandler } from 'react';
 import classnames from 'classnames';
 import styles from './icon.less';
 
-interface IIconProps {
+export interface IIconProps {
   type: string;
-  onClick?: MouseEventHandler
+  onClick?: MouseEventHandler;
+  title?: string;
+  className?: string;
 }
 
 export const Icon: FC<IIconProps> = (props) => {
-  const { type, onClick } = props;
+  const { type, onClick, title, className } = props;
   const iconClass = classnames({
     [styles.icon]: true,
     [styles.iconClick]: onClick,
-    [`iconfont icon-${type}`]: type
+    [`iconfont icon-${type}`]: type,
+    [className as string]:className
   })
-  return <span className={iconClass} onClick={onClick}></span>
+  return <span className={iconClass} onClick={onClick} title={title}></span>
 }

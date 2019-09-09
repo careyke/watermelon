@@ -65,5 +65,9 @@ describe("Button test", () => {
     const wrapper = mount(<Button onClick={handleClick}>Click</Button>);
     wrapper.simulate('click');
     expect(handleClick).toHaveBeenCalled();
-  })
+  });
+  it("render className props correctly", () => {
+    const wrapper = shallow(<Button className='testClassName' />);
+    expect(wrapper.hasClass('testClassName')).toEqual(true);
+  });
 });

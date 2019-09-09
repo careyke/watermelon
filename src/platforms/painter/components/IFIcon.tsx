@@ -1,17 +1,11 @@
 /**
  * 运行时图标
  */
-import React, { FC, MouseEventHandler } from 'react';
-import { Icon } from '../../../baseComponents';
+import React, { FC } from 'react';
+import { Icon, IIconProps } from '../../../baseComponents';
 
-interface IIFIcon {
-  type: 'string',
-  onClick?: MouseEventHandler
-}
-
-export const IFIcon: FC<IIFIcon> = (props) => {
-  const { type, onClick } = props;
+export const IFIcon: FC<IIconProps> = (props) => {
   return (
-    <Icon type={type} onClick={onClick}></Icon>
+    <Icon {...props}></Icon>
   );
 }

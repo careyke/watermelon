@@ -2,11 +2,13 @@
  * 运行时行布局容器
  */
 import React, { FC } from 'react';
-import { FlexPanel } from '../../../baseComponents';
+import { FlexPanel, IFlexProps } from '../../../baseComponents';
 
-export const IFRow: FC = (props) => {
-  const { children } = props;
+type IFRowProps = Omit<IFlexProps, 'direction'>;
+
+export const IFRow: FC<IFRowProps> = (props) => {
+  const { children, className } = props;
   return (
-    <FlexPanel direction='row'>{children}</FlexPanel>
+    <FlexPanel direction='row' className={className}>{children}</FlexPanel>
   );
 }

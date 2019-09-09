@@ -17,4 +17,8 @@ describe("test flexPanel", () => {
     const wrapper = shallow(<FlexPanel direction={direction}></FlexPanel>);
     expect(wrapper.hasClass(`flex${direction}`)).toEqual(true);
   });
+  it("render className props correctly", () => {
+    const wrapper = shallow(<FlexPanel className='testClassName' />);
+    expect(wrapper.hasClass('testClassName')).toEqual(true);
+  });
 });
