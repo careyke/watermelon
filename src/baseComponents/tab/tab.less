@@ -1,0 +1,52 @@
+@import "../../colors.less";
+
+.tab {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+.tabPanel {
+  display: flex;
+  flex-grow: 1;
+}
+.tabNav {
+  display: flex;
+  flex-direction: column;
+  position: relative; /*用来将这一层设置成offsetParent,给offsetLeft一个参照对象*/
+  .tabNavContent {
+    display: flex;
+    .tabItem {
+      display: flex;
+      padding: 12px 16px;
+      margin-right: 30px;
+      cursor: pointer;
+      &:hover {
+        color: @primaryColor-hover;
+      }
+    }
+    .tabItemLast {
+      margin-right: 0px;
+    }
+    .fullType {
+      margin: 0;
+      justify-content: center;
+    }
+    .activeItem {
+      color: @primaryColor;
+    }
+  }
+  .tabNavProgress {
+    display: flex;
+    position: relative;
+    height: 2px;
+    background-color: #e2e2e2;
+    .cube {
+      display: flex;
+      position: absolute;
+      left: 0;
+      height: 2px;
+      background-color: @primaryColor;
+      transition: transform 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
+    }
+  }
+}
