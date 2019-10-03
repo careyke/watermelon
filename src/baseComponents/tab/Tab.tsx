@@ -8,12 +8,13 @@ import { TTabKey, TTabNavItem, TTabType } from './type';
 import styles from './tab.less';
 
 interface ITabProps {
-  defaultActiveTabKey?: TTabKey,
-  type?: TTabType
+  defaultActiveTabKey?: TTabKey;
+  type?: TTabType;
+  onChange?: (tabKey?: TTabKey, oldTabKey?: TTabKey) => void
 }
 
 export const Tab: FC<ITabProps> = (props) => {
-  const { children, defaultActiveTabKey } = props;
+  const { children, defaultActiveTabKey, onChange } = props;
   const getValidChilren = useCallback<() => React.ReactElement[]>(() => {
     return React.Children.toArray(children).filter((child) => {
       if (!React.isValidElement(child)) return false;
@@ -23,11 +24,21 @@ export const Tab: FC<ITabProps> = (props) => {
     }) as React.ReactElement[]
   }, [children]);
   const validChilren = getValidChilren();
-  const tabItems: TTabNavItem[] = validChilren.map((child) => {
-    return { tabKey: child.props.tabKey, tabTitle: child.props.tabTitle }
+  let tabItems: TTabNavItem[] = [];
+  validChilren.forEach((child) => {
+    const { tabKey, tabTitle } = child.props;
+    if (tabItems.find((item) => item.tabKey === tabKey)) {
+      console.error('there is same tabKey:' + tabKey);
+    } else {
+      return tabItems.push({ tabKey, tabTitle });
+    }
   })
   const [activeKey, setActiveKey] = useState<TTabKey>(() => {
-    if (defaultActiveTabKey) return defaultActiveTabKey;
+    if (defaultActiveTabKey) {
+      if (tabItems.find((item) => item.tabKey === defaultActiveTabKey)) {
+        return defaultActiveTabKey;
+      }
+    };
     if (tabItems[0] && tabItems[0].tabKey) return tabItems[0].tabKey;
     return '';
   });
@@ -40,7 +51,7 @@ export const Tab: FC<ITabProps> = (props) => {
 
   return (
     <div className={styles.tab}>
-      <TabNav items={tabItems} activeTabKey={activeKey} switchTab={setActiveKey} type={props.type}></TabNav>
+      <TabNav items={tabItems} activeTabKey={activeKey} switchTab={setActiveKey} onChange={onChange} type={props.type}></TabNav>
       {getActiveChild()}
     </div>
   );

@@ -1,15 +1,15 @@
 import React, { FC } from 'react';
 import styles from './designer.less';
-import { IFCol } from '../painter';
-import { SettingBar,LayoutBar } from './commons'
+import { SettingBar,LayoutBar } from './commons';
+import {FlexPanel} from '../../baseComponents';
 
 export const UIContent: FC = () => {
   return (
-    <IFCol className={styles.uicontent}>
-      <IFCol className={styles.settingContent}>
+    <FlexPanel direction='col' className={styles.uicontent}>
+      <FlexPanel direction='col' className={styles.settingContent}>
         <SettingBar></SettingBar>
         <LayoutBar></LayoutBar>
-      </IFCol>
-    </IFCol>
+      </FlexPanel>
+    </FlexPanel>
   );
 }

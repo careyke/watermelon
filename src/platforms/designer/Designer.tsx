@@ -6,14 +6,14 @@ import styles from './designer.less';
 import { UILeft } from './UILeft';
 import { UIRight } from './UIRight';
 import { UIContent } from './UIContent';
-import { IFRow, IFCol } from '../painter';
+import { FlexPanel } from '../../baseComponents';
 
 export const Designer: FC = () => {
   return (
-    <IFRow className={styles.designer}>
+    <FlexPanel className={styles.designer}>
       <UILeft></UILeft>
       <UIContent></UIContent>
       <UIRight></UIRight>
-    </IFRow>
+    </FlexPanel>
   );
 }
